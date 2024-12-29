@@ -85,19 +85,23 @@ payButton.addEventListener("click", () => {
   const paymentInput = document.getElementById("paymentInput");
   const payment = parseFloat(paymentInput.value);
 
-  if (isNaN(payment) || payment < total) {
-    alert("Insufficient payment. Please enter a valid amount.");
+  if (!payment || payment < total) {
+    alert(
+      "Insufficient balance. What payment method do you prefer, cash or card?"
+    );
+
     return;
+  } else {
+    alert("Paid successfully");
+    const change = payment - total;
+    changeDisplay.textContent = `Change: P${change.toFixed(2)}`;
+
+    // Reset the cart and total
+    cart = [];
+    total = 0;
+
+    updateCart();
+    paymentInput.value = "";
+    paymentSection.classList.add("hidden");
   }
-
-  const change = payment - total;
-  changeDisplay.textContent = `Change: P${change.toFixed(2)}`;
-
-  // Reset the cart and total
-  cart = [];
-  total = 0;
-
-  updateCart();
-  paymentInput.value = "";
-  paymentSection.classList.add("hidden");
 });
