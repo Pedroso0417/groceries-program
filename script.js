@@ -46,7 +46,7 @@ function updateCart() {
     .map(
       (item, index) => `
       <li>
-        ${item.name} - $${item.price.toFixed(2)}
+        ${item.name} - ${item.price.toFixed(2)}
         <button onclick="removeFromCart(${index})">Remove</button>
       </li>
     `
@@ -91,7 +91,7 @@ payButton.addEventListener("click", () => {
   }
 
   const change = payment - total;
-  changeDisplay.textContent = `Change: $${change.toFixed(2)}`;
+  changeDisplay.textContent = `Change: P${change.toFixed(2)}`;
 
   // Reset the cart and total
   cart = [];
