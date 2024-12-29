@@ -21,7 +21,7 @@ itemList.innerHTML = items
   .map(
     (item) => `
       <li>
-        ${item.name} - $${item.price.toFixed(2)}
+        ${item.name} - P${item.price.toFixed(2)}
         <button onclick="addToCart(${item.id})">Add to Cart</button>
       </li>
     `
