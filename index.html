@@ -7,31 +7,49 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Grocery Store</h1>
-    <div class="store">
-      <h2>Available Items</h2>
-      <ul id="itemList">
-        <!-- Items will be added dynamically -->
-      </ul>
-    </div>
 
-    <div class="cart">
-      <h2>Shopping Cart</h2>
-      <ul id="cartList">
-        <!-- Cart items will be added dynamically -->
-      </ul>
-      <p>Total: P<span id="totalPrice">0.00</span></p>
-      <button id="checkoutButton">Checkout</button>
-    </div>
+  <!-- Login Form -->
+  <div id="loginForm">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button id="loginButton">Login</button>
+    <p id="loginError" style="color: red;"></p>
+  </div>
 
-    <div class="payment hidden">
-      <h2>Payment</h2>
-      <p>Total Amount: P<span id="finalAmount">0.00</span></p>
-      <label for="paymentInput">Enter Payment: </label>
-      <input type="number" id="paymentInput" placeholder="Enter payment">
-      <button id="payButton">Pay</button>
-      <p id="changeDisplay"></p>
+  <!-- Trigger/Open The Modal -->
+  <button id="openModalBtn" style="display: none;">Open Grocery Cart</button>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <!-- Content for Grocery Store inside the Modal -->
+      <div class="container">
+        <h1>Grocery Store</h1>
+        <div class="store">
+          <h2>Available Items</h2>
+          <ul id="itemList">
+            <!-- Items will be loaded dynamically here -->
+          </ul>
+        </div>
+
+        <div class="cart">
+          <h2>Shopping Cart</h2>
+          <ul id="cartList"></ul>
+          <p>Total: P<span id="totalPrice">0.00</span></p>
+          <button id="checkoutButton">Checkout</button>
+        </div>
+
+        <div class="payment hidden">
+          <h2>Payment</h2>
+          <p>Total Amount: P<span id="finalAmount">0.00</span></p>
+          <label for="paymentInput">Enter Payment: </label>
+          <input type="number" id="paymentInput" placeholder="Enter payment">
+          <button id="payButton">Pay</button>
+          <p id="changeDisplay"></p>
+        </div>
+      </div>
     </div>
   </div>
 
