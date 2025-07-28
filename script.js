@@ -49,6 +49,16 @@ openModalBtn.addEventListener('click', () => {
   openModalBtn.style.display = "none"; // Hide cart button after opening modal
 });
 
+function closeModal() {
+  document.getElementById('atmModal').style.display = 'none';
+}
+
+function selectPaymentMode(mode) {
+  alert(`You selected ${mode} as your payment mode.`);
+  closeModal();
+}
+
+
 // Close the modal
 document.querySelector('.close-button').addEventListener('click', () => {
   console.log("Closing modal..."); // Debugging
@@ -100,6 +110,9 @@ checkoutButton.addEventListener("click", () => {
     alert("Your cart is empty!");
     return;
   }
+  // Inside your checkoutButton event listener
+document.getElementById('atmModal').style.display = 'flex';
+
 
   paymentSection.classList.remove("hidden");
   finalAmount.textContent = total.toFixed(2);

@@ -33,6 +33,17 @@
             <!-- Items will be loaded dynamically here -->
           </ul>
         </div>
+        <!-- Payment Mode Modal -->
+<div id="atmModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close-button" onclick="closeModal()">&times;</span>
+    <h2>Select Payment Mode</h2>
+    <button onclick="selectPaymentMode('Cash')">Cash</button>
+    <button onclick="selectPaymentMode('Card')">Card</button>
+    <button onclick="selectPaymentMode('GCash')">GCash</button>
+  </div>
+</div>
+
 
         <div class="cart">
           <h2>Shopping Cart</h2>
