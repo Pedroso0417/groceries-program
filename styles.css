@@ -14,7 +14,7 @@ body {
                 rgba(46, 47, 66, 0.7),
                 rgba(46, 47, 66, 0.7)
             ),
-            url(./grocery\ image.jpg); /* Ensure image path is correct */
+            url(./images/grocery\ image.jpg); /* Ensure image path is correct */
             background-repeat: no-repeat;
             background-position: center;
             background-size: auto;

@@ -1,16 +1,15 @@
 // Items list
 const items = [
-  { id: 1, name: "Apple", price: 20 },
-  { id: 2, name: "Bread", price: 70 },
-  { id: 3, name: "Milk", price: 30 },
-  { id: 4, name: "Eggs", price: 240 },
-  { id: 5, name: "Cheese", price: 30 },
-  { id: 6, name: "Fish", price: 200 },
-  { id: 7, name: "Coke 1.5L", price: 70 },
-  { id: 8, name: "Pork 1 Kilo", price: 280 },
-  { id: 9, name: "Chicken 1 Kilo", price: 270 },
-  { id: 10, name: "Beef 1 Kilo", price: 300 },
-  { id: 11, name: "Hotdog 1 Kilo", price: 80 }
+  { id: 1, name: "Apple", price: 20, image: "./images/apple.jpg" },
+  { id: 3, name: "Milk", price: 30, image: "./images/milk.jpg" },
+  { id: 4, name: "Eggs", price: 240, image: "./images/eggs.jpg" },
+  { id: 5, name: "Cheese", price: 30, image: "./images/cheese.jpg" },
+  { id: 6, name: "Fish", price: 200, image: "./images/fish.jpg" },
+  { id: 7, name: "Coke 1.5L", price: 70, image: "./images/coke.jpg" },
+  { id: 8, name: "Pork 1 Kilo", price: 280, image: "./images/pork.jpg" },
+  { id: 9, name: "Chicken 1 Kilo", price: 270, image: "./images/chicken.jpg" },
+  { id: 10, name: "Beef 1 Kilo", price: 300, image: "./images/beef.jpg" },
+  { id: 11, name: "Hotdog 1 Kilo", price: 80, image: "./images/hotdog.jpg"},
 ];
 
 let cart = [];
@@ -27,6 +26,17 @@ const paymentSection = document.querySelector('.payment');
 const finalAmount = document.getElementById('finalAmount');
 const payButton = document.getElementById('payButton');
 const changeDisplay = document.getElementById('changeDisplay');
+
+// Render items dynamically
+items.forEach(item => {
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <img src="${item.image}" alt="${item.name}" width="80" />
+    <span>${item.name} — ₱${item.price}</span>
+    <button onclick="addToCart(${item.id})">Add to Cart</button>
+  `;
+  itemList.appendChild(li);
+});
 
 // Login Button Event
 document.getElementById('loginButton').addEventListener('click', () => {
@@ -58,23 +68,12 @@ function selectPaymentMode(mode) {
   closeModal();
 }
 
-
 // Close the modal
 document.querySelector('.close-button').addEventListener('click', () => {
   console.log("Closing modal..."); // Debugging
   document.getElementById('myModal').style.display = 'none';
   openModalBtn.style.display = "block"; // Show cart button when modal is closed
 });
-
-// Render items dynamically
-itemList.innerHTML = items
-  .map(item => `
-    <li>
-      ${item.name} - P${item.price.toFixed(2)} 
-      <button onclick="addToCart(${item.id})">Add to Cart</button>
-    </li>
-  `)
-  .join("");
 
 // Function to add item to the cart
 function addToCart(itemId) {
@@ -111,9 +110,7 @@ checkoutButton.addEventListener("click", () => {
     return;
   }
   // Inside your checkoutButton event listener
-document.getElementById('atmModal').style.display = 'flex';
-
-
+  document.getElementById('atmModal').style.display = 'flex';
   paymentSection.classList.remove("hidden");
   finalAmount.textContent = total.toFixed(2);
 });
